@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-body font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-accent text-ink;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8;
+  }
+  .btn-yellow {
+    @apply inline-flex items-center justify-center gap-2 bg-accent px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-ink transition-all duration-300 hover:bg-ink hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 bg-charcoal px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-white transition-all duration-300 hover:bg-accent hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2;
+  }
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 border border-white/60 px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-white transition-all duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2;
+  }
+  .section-label {
+    @apply mb-3 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+  .h-section {
+    @apply text-3xl font-bold uppercase leading-tight text-ink sm:text-4xl;
+  }
+  .input {
+    @apply w-full border border-gray-300 bg-white px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Scroll reveal — calm, GPU friendly */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hide scrollbar on horizontal carousels */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
